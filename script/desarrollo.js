@@ -35,3 +35,45 @@ function updateCarousel() {
 
 updateCarousel();
 setInterval(updateCarousel, 5000);
+
+const contactIcon = document.querySelector('.contact-icon');
+const contactDropdown = document.querySelector('.contact-dropdown');
+
+contactIcon.addEventListener('click', () => {
+  contactDropdown.style.display = contactDropdown.style.display === 'block' ? 'none' : 'block';
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.matches('.contact-icon')) {
+    contactDropdown.style.display = 'none';
+  }
+});
+
+const socialIcons = document.querySelectorAll('.social-icon')
+
+socialIcons.forEach(socialIcon => {
+  socialIcon.addEventListener('click', () => {
+    const socialDropdown = socialIcon.nextElementSibling;
+    socialDropdown.style.display = socialDropdown.style.display === 'block' ? 'none' : 'block';
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.matches('.social-icon')) {
+    const socialDropdowns = document.querySelectorAll('.social-dropdown');
+    socialDropdowns.forEach(socialDropdown => {
+      socialDropdown.style.display = 'none';
+    });
+  }
+});const locationIcon = document.querySelector('.location-icon');
+const locationDropdown = document.querySelector('.location-dropdown');
+
+locationIcon.addEventListener('click', () => {
+  locationDropdown.style.display = locationDropdown.style.display === 'block' ? 'none' : 'block';
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.matches('.location-icon')) {
+    locationDropdown.style.display = 'none';
+  }
+});
