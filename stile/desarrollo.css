@@ -1,0 +1,178 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: ;
+    --accent-color1: #000000;  
+    --accent-color2: #ffffff;
+}
+
+body {
+    background-image: url("/image/Fondo_Desarrollo.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.contenido-principal {
+    flex: 1;
+}
+
+header {
+    background-color: #02010a52;
+}
+
+nav {
+    position: relative;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+nav img{
+    position:absolute;
+    top: 20px;
+    left: 40px;
+    margin-bottom: 50px;
+}
+
+.button-container{
+    position: relative;
+    max-width: 216px;
+    max-height: 55px;
+    padding: 20px;
+    display: flex;
+}
+
+
+a{
+    width: 216px;
+    height: 56px;
+    background-color: #cbcbcb54;
+    color:white;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Jura', sans-serif;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 80px 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    line-height: 56px;
+}
+
+
+
+.desarrollo-button{
+    position: absolute;
+    top: 40px;
+    right: 800px;
+}
+
+.domotica-button{
+    position: absolute;
+    top: 40px;
+    right: 540px;
+}
+
+.redes-button {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+}
+
+.informatica-button {
+    position: absolute;
+    top: 40px;
+    right: 280px;
+}
+
+a:hover {
+    background-color: #2c25f47a ;
+}
+
+.inicio {
+    position: relative;
+    height: 300px;
+}
+
+.logo-inicio {
+    position: absolute;
+    top: 50%;
+    left: 150px;
+    transform: translateY(-50%);
+    width: 450px;
+    height: 450px;
+}
+
+h1 {
+    position:absolute;
+    color: #970103;
+    text-shadow: 2px 4px 5px #940103, -2px -4px -5px #000000;
+    top: 160px;
+    right: 320px;
+    z-index: 1;
+    font-size: 4em;
+}
+.p-desarrollo {
+    background-color: #630002a6;
+    color: var(--accent-color2);
+    padding: 20px;
+    border-radius: 20px;
+    position:absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    width: 1000px;
+    height: 300px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.carousel-dots {
+    text-align: center;
+    margin-top: 540px;
+    margin-left: 700px;
+    position: relative;
+    top: 10px;
+    z-index: 1;
+}
+
+.dot {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #630002a6;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+.dot.active{
+    background-color: #970103;
+}
+
+footer {
+    background-color: #02010a52;
+    color:white;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+footer img{
+    margin: 0 15px;
+}
