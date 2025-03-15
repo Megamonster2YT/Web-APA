@@ -1,10 +1,11 @@
+// import { Config } from "./Config"; Supuestament no Va 
+
 const texts = [
-    "Transforma tu espacio con domótica: automatización inteligente para hogares y edificios. Controla iluminación, climatización, seguridad y más, optimizando confort, eficiencia energética y conectividad.",
-    "Instala un sistema de domótica que permita a los residentes controlar la iluminación, la temperatura y la seguridad de la casa de manera remota a través de una aplicación móvil, mejorando la comodidad y la eficiencia energética.",
-    "Implementa un sistema de gestión inteligente en un edificio comercial, ajustando automáticamente la climatización y la iluminación según la ocupación de las habitaciones, reduciendo el consumo energético y creando un ambiente de trabajo más productivo.",
-    "En un hogar o espacio comercial, integra sistemas de audio, video y control de ambientes en un solo sistema de domótica, permitiendo crear experiencias personalizadas de entretenimiento y confort con solo un toque o comando de voz.",
-    "Instala cámaras de vigilancia, sensores de movimiento y alarmas conectadas a un sistema central de domótica, permitiendo monitorear y gestionar la seguridad del hogar o edificio en tiempo real desde cualquier lugar."
-]
+  "El desarrollo es el arte de transformar ideas en realidad. A través del código, la creatividad y la innovación, construimos soluciones que no solo resuelven problemas, sino que también inspiran y conectan al mundo. Ya sea diseñando una página web, creando una aplicación o integrando tecnologías emergentes, cada línea de código es un paso hacia un futuro más inteligente, eficiente y lleno de posibilidades. El desarrollo no es solo tecnología; es el puente entre lo imaginado y lo posible.",
+  "Cada línea de código es un paso hacia un futuro más inteligente y eficiente, conectando ideas con posibilidades a través de la tecnología.",
+  "Desarrollar no solo es resolver problemas, es construir un futuro lleno de oportunidades y conectar al mundo a través de la innovación tecnológica.",
+  "El desarrollo como transformación: El desarrollo es el proceso de convertir ideas en realidad a través del código, la creatividad y la innovación, creando soluciones que resuelven problemas e inspiran al mundo."
+];
 
 let currentIndex = 0;
 const carouselElement = document.getElementById('text-carousel');
@@ -35,7 +36,10 @@ function updateCarousel() {
 }
 
 updateCarousel();
-setInterval(updateCarousel, 5000);
+
+console.log();
+
+setInterval(updateCarousel, 15000);
 
 const contactIcon = document.querySelector('.contact-icon');
 const contactDropdown = document.querySelector('.contact-dropdown');
@@ -50,23 +54,7 @@ document.addEventListener('click', (event) => {
   }
 });
 
-const socialIcons = document.querySelectorAll('.social-icon')
-
-socialIcons.forEach(socialIcon => {
-  socialIcon.addEventListener('click', () => {
-    const socialDropdown = socialIcon.nextElementSibling;
-    socialDropdown.style.display = socialDropdown.style.display === 'block' ? 'none' : 'block';
-  });
-});
-
-document.addEventListener('click', (event) => {
-  if (!event.target.matches('.social-icon')) {
-    const socialDropdowns = document.querySelectorAll('.social-dropdown');
-    socialDropdowns.forEach(socialDropdown => {
-      socialDropdown.style.display = 'none';
-    });
-  }
-});const locationIcon = document.querySelector('.location-icon');
+const locationIcon = document.querySelector('.location-icon');
 const locationDropdown = document.querySelector('.location-dropdown');
 
 locationIcon.addEventListener('click', () => {

@@ -205,29 +205,6 @@ h1 {
     display: inline-block;
 }
 
-.social-dropdown {
-    display: none;
-    position: absolute;
-    background-color: #cbcbcb38;
-    min-width: 120px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    bottom: 100%;
-    left: 80%;
-    transform: translate(50%, -5px);
-}
-
-.social-dropdown a{
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.social-dropdown a:hover{
-    background-color: #2c25fa5d;
-}
-
 .social-icon {
     cursor: pointer;
 }
@@ -237,30 +214,7 @@ h1 {
     display: inline-block;
     margin-right: 15px;
   }
-  
-  .location-dropdown {
-    display: none;
-    position: absolute;
-    background-color: #cbcbcb38;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    bottom: 100%;
-    left: -30%;
-    transform: translate(-50%, -5px);
-  }
-  
-  .location-dropdown a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .location-dropdown a:hover {
-    background-color: #2c25fa5d;
-  }
-  
+
   .location-icon {
     cursor: pointer;
   }
