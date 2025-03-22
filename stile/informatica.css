@@ -108,18 +108,18 @@ nav img{
 .logo-inicio {
     position: absolute;
     top: 50%;
-    left: 150px;
+    left: 50px;
     transform: translateY(-50%);
-    width: 450px;
-    height: 450px;
+    width: 250px;
+    height: 250px;
 }
 
 h1 {
     position:absolute;
     color: #4e4aea;
     text-shadow: 2px 4px 5px black;
-    top: 160px;
-    right: 200px;
+    top: 60px;
+    right: 320px;
     z-index: 1;
     font-size: 4em;
 }
@@ -132,7 +132,7 @@ h1 {
     top: 50%;
     right: 50px;
     transform: translateY(-50%);
-    width: 1000px;
+    width: 700px;
     height: 300px;
     text-align: left;
     display: flex;
