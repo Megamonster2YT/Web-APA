@@ -105,7 +105,7 @@ nav img{
 .logo-inicio {
     position: absolute; /* Posiciona el logo de manera absoluta */
     top: 50%; /* Centra el logo verticalmente */
-    left: 6vw; /* Posiciona el logo a 150px desde la parte izquierda */
+    left: 150px; /* Posiciona el logo a 150px desde la parte izquierda */
     transform: translateY(-50%); /* Ajusta la posición del logo para centrarlo verticalmente */
     max-width: 100%; /* Establece el ancho del logo */
     width: 250px;
