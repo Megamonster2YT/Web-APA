@@ -1,18 +1,47 @@
 body {
     font-family: sans-serif;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #857d7d;
 }
 
 .container {
     text-align: center;
 }
 
-.team-member img {
+.equipo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+    background-color: white;
+    width: 65%;
+}
+
+.flecha-izquierda  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-30%, 105%);
+    top: 50%;
+    height: 50%;
+}
+
+.flecha-derecha {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(30%, 105%);
+    top: 50%
+}
+
+.cuadro-equipo img {
     width: 200px; /* Ajusta el tamaño de la imagen según sea necesario */
     height: 200px;
     border-radius: 50%; /* Hace que la imagen sea circular */
