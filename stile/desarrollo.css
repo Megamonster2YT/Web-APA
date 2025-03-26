@@ -101,22 +101,23 @@ nav img{
     position: relative; /* Posiciona la sección de inicio de manera relativa */
     height: 300px; /* Establece la altura de la sección de inicio */
 }
-
+/* Logo Apa inicio prinsipal */
 .logo-inicio {
     position: absolute; /* Posiciona el logo de manera absoluta */
     top: 50%; /* Centra el logo verticalmente */
     left: 150px; /* Posiciona el logo a 150px desde la parte izquierda */
     transform: translateY(-50%); /* Ajusta la posición del logo para centrarlo verticalmente */
-    width: 450px; /* Establece el ancho del logo */
-    height: 450px; /* Establece la altura del logo */
+    max-width: 100%; /* Establece el ancho del logo */
+    width: 250px;
+    height: 250px;
 }
 
 h1 {
     position:absolute; /* Posiciona el título de manera absoluta */
     color: #970103; /* Establece el color del texto del título */
     text-shadow: 2px 4px 5px #000000; /* Añade una sombra al texto del título */
-    top: 160px; /* Posiciona el título a 160px desde la parte superior */
-    right: 320px; /* Posiciona el título a 320px desde la parte derecha */
+    top: 60px; /* Posiciona el título a 160px desde la parte superior */
+    right: 180px; /* Posiciona el título a 320px desde la parte derecha */
     z-index: 1; /* Asegura que el título esté por encima de otros elementos */
     font-size: 4em; /* Establece el tamaño de la fuente del título */
 }
@@ -129,7 +130,7 @@ h1 {
     top: 50%; /* Centra el párrafo verticalmente */
     right: 50px; /* Posiciona el párrafo a 50px desde la parte derecha */
     transform: translateY(-50%); /* Ajusta la posición del párrafo para centrarlo verticalmente */
-    width: 1000px; /* Establece el ancho del párrafo */
+    width: 700px; /* Establece el ancho del párrafo */
     height: 300px; /* Establece la altura del párrafo */
     text-align: left; /* Alinea el texto a la izquierda */
     display: flex; /* Utiliza flexbox para el diseño del contenido del párrafo */
