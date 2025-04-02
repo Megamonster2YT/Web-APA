@@ -19,7 +19,8 @@ body {
     justify-content: center;
     gap: 50px;
     margin-top: 20px;
-    background-color: white;
+    background-color: white; 
+    z-index: 0;
     width: 65%;
 }
 
@@ -41,10 +42,22 @@ body {
     top: 50%
 }
 
-.cuadro-equipo img {
-    width: 200px; /* Ajusta el tamaño de la imagen según sea necesario */
-    height: 200px;
-    border-radius: 50%; /* Hace que la imagen sea circular */
-    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
-    margin-bottom: 10px;
-}
+.cuadro-equipo {
+    /* Overall container styles */
+    width: 300px; /* Adjust width as needed */
+    height: 100px;
+    border: 15px solid #0c0c0c; /* Borde gris claro */
+    border-radius: 15px; /* Rounded corners */
+
+    background-color: #0f0f0f; /* Light gray background */
+  }
+  
+
+  .prueba {
+    width: 500px;
+    height: 500px;
+    background-color: #0f0f0f; /* Light gray background */
+    border-radius: 15px; /* Rounded corners */
+    border: 15px solid #ff0000; /* Borde gris claro */
+
+  }

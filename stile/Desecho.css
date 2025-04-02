@@ -1,0 +1,67 @@
+
+/* ----- Equipo.css ------- */
+
+.cuadro-equipo-nombre {
+    font-size: 1.5em; /* Adjust size */
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+
+    /* Example styles for specific icons (replace with your actual icon elements) */
+    .cuadro-equipo-icons a i { /* If you are using icon fonts like Font Awesome */
+        /* ... your icon styles ... */
+      }
+      
+    .cuadro-equipo-icons svg {  
+        /* If you are using SVG icons */
+        width: 24px; /* Example icon width */
+        height: 24px; /* Example icon height */
+        fill: #333; /* Example icon fill color */
+      }
+
+      .cuadro-equipo-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Space between icons */
+      }
+      
+      .cuadro-equipo-icons a {
+        display: inline-block; /* Or block depending on how you want them to behave */
+        /* Add styles for your icons here (e.g., size, color) */
+        font-size: 1.2em; /* Example icon size */
+        color: #333; /* Example icon color */
+        text-decoration: none; /* Remove underlines from links */
+      }
+
+      
+  .cuadro-equipo-image-container {
+    width: 100%;
+    overflow: hidden; /* Clip image to rounded corners */
+    border-top-left-radius: 10px; /* Match container radius */
+    border-top-right-radius: 10px; /* Match container radius */
+  }
+  
+  .cuadro-equipo-image-container img {
+    display: block; /* Remove extra space below image */
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .cuadro-equipo-info {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    border-bottom-left-radius: 10px; /* Match container radius */
+    border-bottom-right-radius: 10px; /* Match container radius */
+  }
+  
+
+  
+  .cuadro-equipo-profesion {
+    font-size: 1em; /* Adjust size */
+    color: #555; /* Optional: slightly darker text */
+    margin-bottom: 15px;
+  }
+  
