@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, Linkedin, MessageSquareText, Phone } from 'lucide-react';
+const logo = 'https://placehold.co/40x40/ffffff/000000?text=NC'; // URL del logo de NorthCode
 
 /**
  * Custom Hook para animaciones de "fade-in" al hacer scroll.
@@ -48,15 +49,15 @@ const useFadeInOnScroll = (): [React.RefObject<HTMLDivElement | null>, boolean] 
 
 // Datos de los miembros del equipo. Se pueden personalizar fácilmente aquí.
 const teamMembers = [
-  { name: 'Gonzalo', role: 'Diseñador UX/UI', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Gonzalo' },
-  { name: 'Luciano', role: 'Desarrollador Full-Stack', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Luciano' },
-  { name: 'Ezequiel', role: 'Gerente de Proyectos', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Ezequiel' },
-  { name: 'Matías', role: 'Especialista en QA', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Matias' },
+  { name: 'Facundo', role: 'Diseñador UX/UI', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Facundo' },
+  { name: 'Esteban', role: 'Backend', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Esteban' },
+  { name:'Ary', role: 'Produccion/QA', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Ary' },
+  { name: 'Mateo', role: 'Frontend/Marketing', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Mateo' },
 ];
 
 // Datos de los proyectos. Se pueden editar aquí sin afectar la estructura del componente.
 const projects = [
-  { title: 'Sitio Web Corporativo APA', description: 'Desarrollo de un sitio web corporativo de alto rendimiento para nuestra empresa APA, con secciones personalizadas para mostrar nuestros servicios.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Sitio+Web+APA' },
+  { title: 'Sitio Web Corporativo NorthCode', description: 'Desarrollo de un sitio web corporativo de alto rendimiento para nuestra empresa NorthCode, con secciones personalizadas para mostrar nuestros servicios.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Sitio+Web+NorthCode' },
   { title: 'Sistema de Gestión de Proyectos', description: 'Creación de una plataforma web para la gestión de proyectos internos, con seguimiento de tareas, asignación de recursos y generación de informes.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Gestion+Proyectos' },
   { title: 'Aplicación Móvil de Servicios', description: 'Desarrollo de una aplicación móvil para iOS y Android que permite a los clientes solicitar nuestros servicios de desarrollo y mantenimiento.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=App+Movil' },
 ];
@@ -97,16 +98,20 @@ const App = () => {
   const [contactoRef, contactoInView] = useFadeInOnScroll();
 
   // URL para el contacto de WhatsApp (personalizar con tu número y mensaje)
-  const whatsappUrl = `https://wa.me/59898559058?text=${encodeURIComponent('Hola, me gustaría más información sobre los servicios de APA.')}`;
+  const whatsappUrl = `https://wa.me/59898559058?text=${encodeURIComponent('Hola, me gustaría más información sobre los servicios de NorthCode.')}`;
 
   return (
     <div className="bg-black text-white font-inter">
       {/* Barra de navegación */}
       <header className="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-80 backdrop-blur-lg">
         <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+          {/* Contenedor del logo y el texto para que la imagen quede a un lado del logo */}
+          <div className="flex items-center space-x-2">
+            <img src={logo} alt="Logo de NorthCode" className="w-8 h-8" />
           <a href="#" className="text-white text-xl font-bold">
-            APA
+            NorthCode
           </a>
+          </div>
           <div className="hidden md:flex space-x-6 text-gray-300 font-semibold">
             <a href="#inicio" className="hover:text-red-600 transition-colors">Inicio</a>
             <a href="#nosotros" className="hover:text-red-600 transition-colors">Nosotros</a>
@@ -148,7 +153,7 @@ const App = () => {
               Analista Programadores Asociados
             </p>
             <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-              APA te ayuda a mejorar tu desarrollo con soluciones innovadoras y eficientes,
+              NorthCode te ayuda a mejorar tu desarrollo con soluciones innovadoras y eficientes,
               creando productos que realmente importan.
             </p>
             <a href="#contacto" className="px-8 py-3 rounded-full font-bold transition-all duration-300 bg-red-600 text-white shadow-lg shadow-red-500/50 hover:bg-red-700">
@@ -243,7 +248,7 @@ const App = () => {
       {/* Pie de página */}
       <footer className="bg-gray-950 text-gray-500 py-8 text-center">
         <div className="container mx-auto px-4">
-          <p>&copy; 2024 APA Analista Programadores Asociados. Todos los derechos reservados.</p>
+          <p>&copy; 2025 NorthCode. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>
