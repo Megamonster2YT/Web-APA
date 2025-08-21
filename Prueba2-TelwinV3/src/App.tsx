@@ -6,7 +6,9 @@ import { Menu, Linkedin, MessageSquareText, Phone } from 'lucide-react';
  * Detecta cuando un elemento entra en la vista del usuario.
  * @returns {[React.RefObject<HTMLDivElement>, boolean]} Un array con la referencia del elemento y un booleano que indica si está en la vista.
  */
-const useFadeInOnScroll = (): [React.RefObject<HTMLDivElement>, boolean] => {
+
+
+const useFadeInOnScroll = (): [React.RefObject<HTMLDivElement | null>, boolean] => {
   // CORRECCIÓN: Inicializamos el ref con null y le decimos a TypeScript que puede ser
   // o un HTMLDivElement o null.
   const ref = useRef<HTMLDivElement | null>(null);
@@ -209,7 +211,7 @@ const App = () => {
                 <input type="text" name="name" placeholder="Nombre completo" className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600" required />
                 <input type="email" name="email" placeholder="Correo electrónico" className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600" required />
                 <input type="text" name="subject" placeholder="Asunto" className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600" required />
-                <textarea name="message" placeholder="Tu mensaje..." rows="5" className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600 resize-none" required></textarea>
+                <textarea name="message" placeholder="Tu mensaje..." rows={5} className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600 resize-none" required></textarea>
                 <button
                   type="submit"
                   className="px-8 py-3 rounded-full font-bold transition-all duration-300 bg-red-600 text-white shadow-lg shadow-red-500/50 hover:bg-red-700 w-full"
