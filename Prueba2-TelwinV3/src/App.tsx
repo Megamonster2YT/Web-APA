@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, Linkedin, MessageSquareText, Phone } from 'lucide-react';
-const logo = 'https://placehold.co/40x40/ffffff/000000?text=NC'; // URL del logo de NorthCode
+import heroBackground from './assets/backgrounds/hero-background.jpg';
+import logo from './assets/logo.png';
+
 
 /**
  * Custom Hook para animaciones de "fade-in" al hacer scroll.
@@ -114,7 +116,7 @@ const App = () => {
           </div>
           <div className="hidden md:flex space-x-6 text-gray-300 font-semibold">
             <a href="#inicio" className="hover:text-red-600 transition-colors">Inicio</a>
-            <a href="#nosotros" className="hover:text-red-600 transition-colors">Nosotros</a>
+            <a href="#nosotros" className="hover:text-red-600 transition-colors">Puto</a>
             <a href="#proyectos" className="hover:text-red-600 transition-colors">Proyectos</a>
             <a href="#contacto" className="hover:text-red-600 transition-colors">Contacto</a>
           </div>
@@ -137,8 +139,9 @@ const App = () => {
           {/* Imagen de fondo elegante */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center"
+            
             style={{
-              backgroundImage: 'url("https://placehold.co/1920x1080/000000/ffffff?text=APA+Analista+Programadores+Asociados")',
+              backgroundImage: `url(${heroBackground})`,
             }}
           ></div>
           {/* Capa de superposición para mejorar la legibilidad del texto */}
@@ -153,8 +156,7 @@ const App = () => {
               Analista Programadores Asociados
             </p>
             <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-              NorthCode te ayuda a mejorar tu desarrollo con soluciones innovadoras y eficientes,
-              creando productos que realmente importan.
+              NorCode Impulsando tu visión.
             </p>
             <a href="#contacto" className="px-8 py-3 rounded-full font-bold transition-all duration-300 bg-red-600 text-white shadow-lg shadow-red-500/50 hover:bg-red-700">
               Comienza tu proyecto
@@ -201,6 +203,7 @@ const App = () => {
                 </div>
               ))}
             </div>
+
           </div>
         </section>
 
@@ -248,7 +251,7 @@ const App = () => {
       {/* Pie de página */}
       <footer className="bg-gray-950 text-gray-500 py-8 text-center">
         <div className="container mx-auto px-4">
-          <p>&copy; 2025 NorthCode. Todos los derechos reservados.</p>
+          <p>&copy; 2024 NorthCode Impulsando tu visión.</p>
         </div>
       </footer>
     </div>
