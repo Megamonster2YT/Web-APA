@@ -62,7 +62,7 @@ nvm use --lts        # Activa esa versión en tu sesión actual
 ### 1. Instalar Tailwind, PostCSS y Autoprefixer
 
 ```bash
-npm install -D tailwindcss@3 postcss autoprefixer
+<<npm install -D tailwindcss@3 postcss autoprefixer>>
 ```
 
 ### 2. Inicializar Archivos de Configuración
@@ -153,6 +153,9 @@ Si ves los estilos de Tailwind aplicados y los iconos funcionando, ¡todo está 
 ├── package.json
 ├── postcss.config.js
 ├── tailwind.config.js
+├── tsconfig.app.json       
+├── tsconfig.node.json
+├── tsconfig.json
 └── src
     ├── App.jsx
     ├── main.jsx
