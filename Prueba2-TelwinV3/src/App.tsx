@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, Linkedin, MessageSquareText, Phone } from 'lucide-react';
+import { Menu, Linkedin, MessageSquareText, Phone, Github, MailIcon } from 'lucide-react';
+
+//Importa imagenes background y logo
 import heroBackground from './assets/backgrounds/hero-background.jpg';
-import logo from './assets/logo.png';
+import logo from './assets/logo3.png';
+
+
+// Importa las imágenes de cada miembro del equipo.
+import fotoEsteban from './assets/equipo/esteban.png';
+import fotoAry from './assets/equipo/ary.png'; ;
+import fotoMateo from './assets/equipo/mateo.png';
 
 
 /**
@@ -51,17 +59,18 @@ const useFadeInOnScroll = (): [React.RefObject<HTMLDivElement | null>, boolean] 
 
 // Datos de los miembros del equipo. Se pueden personalizar fácilmente aquí.
 const teamMembers = [
-  { name: 'Facundo', role: 'Diseñador UX/UI', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Facundo' },
-  { name: 'Esteban', role: 'Backend', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Esteban' },
-  { name:'Ary', role: 'Produccion/QA', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Ary' },
-  { name: 'Mateo', role: 'Frontend/Marketing', linkedin: '#', whatsapp: '#', img: 'https://placehold.co/150x150/1f2937/ffffff?text=Mateo' },
+  { name: 'Facundo', role: 'Diseñador UX/UI', linkedin: '#', whatsapp: 'https://wa.me/+59891886824', github: '#', mail: 'mailto:', img:'https://placehold.co/150x150/1f2937/ffffff?text=Facundo'},
+  { name: 'Esteban', role: 'Backend Developer', linkedin: 'https://www.linkedin.com/in/esteban-silva-598110182/', whatsapp: 'https://wa.me/+59899456893', github: 'https://github.com/Megamonster2YT', mail: 'mailto:silvaesteban309@gmail.com', img: fotoEsteban },
+  { name:'Ary', role: 'Infraestructura & CEO', linkedin: 'https://www.linkedin.com/in/ary-gimenez-2a42b5179/', whatsapp: 'https://wa.me/+59898559058', github: 'https://github.com/AryGimenez', mail: 'mailto:argi.prog@gmail.com', img: fotoAry },
+  { name: 'Mateo', role: 'Ventas, Marketing & Frontend Developer', linkedin: 'https://www.linkedin.com/in/mate-bds-46448a363/', whatsapp: 'https://wa.me/+59897840421', github: 'https://github.com/MateoBas005', mail: 'mailto:@gmail.com', img: fotoMateo },
 ];
 
 // Datos de los proyectos. Se pueden editar aquí sin afectar la estructura del componente.
 const projects = [
-  { title: 'Sitio Web Corporativo NorthCode', description: 'Desarrollo de un sitio web corporativo de alto rendimiento para nuestra empresa NorthCode, con secciones personalizadas para mostrar nuestros servicios.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Sitio+Web+NorthCode' },
+  { title: 'Sitio Web Corporativo NorthCode', description: 'Desarrollo de un sitio web corporativo de alto rendimiento para nuestra empresa NorthCode, con secciones personalizadas para mostrar nuestros servicios.', img: logo },
   { title: 'Sistema de Gestión de Proyectos', description: 'Creación de una plataforma web para la gestión de proyectos internos, con seguimiento de tareas, asignación de recursos y generación de informes.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Gestion+Proyectos' },
   { title: 'Aplicación Móvil de Servicios', description: 'Desarrollo de una aplicación móvil para iOS y Android que permite a los clientes solicitar nuestros servicios de desarrollo y mantenimiento.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=App+Movil' },
+  { title: 'Sistema de Reservas en Línea', description: 'Implementación de un sistema de reservas en línea para nuestros servicios, con integración de pagos y gestión de citas.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Reservas+Online' }
 ];
 
 /**
@@ -109,14 +118,13 @@ const App = () => {
         <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
           {/* Contenedor del logo y el texto para que la imagen quede a un lado del logo */}
           <div className="flex items-center space-x-2">
-            <img src={logo} alt="Logo de NorthCode" className="w-8 h-8" />
           <a href="#" className="text-white text-xl font-bold">
-            NorthCode
+            <img src={logo} alt="Logo de NorthCode" className="w-8 h-8" />
           </a>
           </div>
           <div className="hidden md:flex space-x-6 text-gray-300 font-semibold">
             <a href="#inicio" className="hover:text-red-600 transition-colors">Inicio</a>
-            <a href="#nosotros" className="hover:text-red-600 transition-colors">Puto</a>
+            <a href="#nosotros" className="hover:text-red-600 transition-colors">Nosotros</a>
             <a href="#proyectos" className="hover:text-red-600 transition-colors">Proyectos</a>
             <a href="#contacto" className="hover:text-red-600 transition-colors">Contacto</a>
           </div>
@@ -156,7 +164,7 @@ const App = () => {
               Analista Programadores Asociados
             </p>
             <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-              NorCode Impulsando tu visión.
+              NorthCode Impulsando tu visión.
             </p>
             <a href="#contacto" className="px-8 py-3 rounded-full font-bold transition-all duration-300 bg-red-600 text-white shadow-lg shadow-red-500/50 hover:bg-red-700">
               Comienza tu proyecto
@@ -178,8 +186,14 @@ const App = () => {
                     <a href={member.linkedin} className="transition-transform transform hover:scale-125 duration-200" aria-label={`LinkedIn de ${member.name}`}>
                       <Linkedin className="w-6 h-6 text-gray-400 hover:text-red-600" />
                     </a>
+                    <a href={member.github} className="transition-transform transform hover:scale-125 duration-200" aria-label={`GitHub de ${member.name}`}>
+                      <Github className="w-6 h-6 text-gray-400 hover:text-red-600" />
+                    </a>
                     <a href={member.whatsapp} className="transition-transform transform hover:scale-125 duration-200" aria-label={`WhatsApp de ${member.name}`}>
                       <MessageSquareText className="w-6 h-6 text-gray-400 hover:text-red-600" />
+                    </a>
+                    <a href={member.mail} className="transition-transform transform hover:scale-125 duration-200" aria-label={`Email de ${member.name}`}>
+                      <MailIcon className="w-6 h-6 text-gray-400 hover:text-red-600" />
                     </a>
                   </div>
                 </div>
@@ -251,7 +265,7 @@ const App = () => {
       {/* Pie de página */}
       <footer className="bg-gray-950 text-gray-500 py-8 text-center">
         <div className="container mx-auto px-4">
-          <p>&copy; 2024 NorthCode Impulsando tu visión.</p>
+          <p>&copy; 2025 NorthCode, Impulsando tu visión .</p>
         </div>
       </footer>
     </div>
