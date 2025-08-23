@@ -8,7 +8,7 @@
       "dev": "vite",
       "build": "tsc -b && vite build",
       "lint": "eslint .",
-      "deploy": "gh-pages -d Prueba2-TelwinV3/dist",
+      "deploy": "gh-pages -d dist",
       "preview": "vite preview"
     },
     "dependencies": {
