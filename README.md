@@ -1,3 +1,64 @@
+
+
+# 🚀 Guía de Inicio Rápido: Proyectos con Vite y Git
+Esta guía te muestra el flujo de trabajo recomendado para iniciar un nuevo proyecto con Vite y Git, garantizando que todos los archivos se encuentren en la raíz del repositorio para evitar problemas de estructura.
+
+## 💻 Paso 1: Crear el Proyecto con Vite
+El paso crucial es crear el proyecto directamente en la carpeta donde quieres que se encuentre.
+
+Abre tu terminal y navega hasta el directorio padre donde quieres que esté tu proyecto.
+
+# Ejemplo:
+```bash
+cd C:\Users\TuUsuario\proyectos
+```
+
+Ejecuta el comando npm create vite@latest pero utiliza un punto (.) en lugar de un nombre de proyecto. El punto le indica a Vite que instale los archivos en el directorio actual.
+
+npm create vite@latest .
+
+Sigue las indicaciones en la terminal para elegir el framework (por ejemplo, React) y la variante (por ejemplo, JavaScript).
+
+🔧 Paso 2: Inicializar el Repositorio Local de Git
+Una vez que Vite ha creado todos los archivos, inicializa Git en esa misma carpeta.
+
+Asegúrate de que tu terminal aún esté en la raíz de la carpeta del proyecto.
+
+Ejecuta el comando para inicializar Git.
+
+git init
+
+🔗 Paso 3: Conectar y Subir a GitHub
+Ahora puedes conectar tu repositorio local al repositorio vacío que creaste en GitHub.
+
+Añade todos los archivos del proyecto a Git.
+
+git add .
+
+Crea tu primer commit.
+
+git commit -m "feat: initial commit with vite project setup"
+
+Añade el repositorio remoto. Asegúrate de reemplazar la URL con la de tu propio repositorio.
+
+git remote add origin https://github.com/tu-usuario/nombre-del-repo.git
+
+Renombra la rama principal (esto es opcional, pero es una buena práctica).
+
+git branch -M main
+
+Sube tus archivos al repositorio remoto.
+
+git push -u origin main
+
+¡Eso es todo! Ahora tu proyecto y tu repositorio de Git están perfectamente alineados, y todos tus archivos se encuentran en la carpeta principal. ✨
+
+-- cORREGIR LO DE ARRIBA APAR ALARAR 
+
+
+
+
+
 # 🚀 Guía de Configuración del Entorno de Desarrollo
 
 Bienvenido/a al proyecto.  
