@@ -51,15 +51,6 @@ const useFadeInOnScroll = () => {
   return [ref, isInView];
 };
 
-// Datos del equipo. En un proyecto real, esto podría venir de una API.
-// Para usar tus propias imágenes, simplemente reemplaza las URLs de "placehold.co"
-// con las URLs públicas de las fotos de cada miembro del equipo.
-const teamMembers = [
-  { name: 'Facundo', role: 'Diseñador UX/UI', linkedin: '#', whatsapp: 'https://wa.me/+59891886824', github: '#', img: fotoFacundo },
-  { name: 'Esteban', role: 'Backend Developer', linkedin: 'https://www.linkedin.com/in/esteban-silva-598110182/', whatsapp: 'https://wa.me/+59899456893', github: 'https://github.com/Megamonster2YT', img: fotoEsteban },
-  { name: 'Ary', role: 'Infraestructura & CEO', linkedin: 'https://www.linkedin.com/in/ary-gimenez-2a42b5179/', whatsapp: 'https://wa.me/+59898559058', github: 'https://github.com/AryGimenez', img: fotoAry },
-  { name: 'Mateo', role: 'Ventas, Marketing & Frontend Developer', linkedin: 'https://www.linkedin.com/in/mate-bds-46448a363/', whatsapp: 'https://wa.me/+59897840421', github: 'https://github.com/MateoBas005', img: fotoMateo },
-];
 
 // Datos de los proyectos.
 // Se ha añadido una propiedad `url` para que cada proyecto sea un enlace.
@@ -71,11 +62,32 @@ const projects = [
   { title: 'Plataforma Educativa Interactiva', description: 'Desarrollo de una plataforma web para cursos en línea, con lecciones interactivas, seguimiento de progreso y foros de discusión.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=E-learning', url: '#' },
 ];
 
+
+
+
 /**
  * --- Inicio de los componentes modulares ---
  */
 
-const Header = ({ toggleMobileMenu, isMobileMenuOpen, logo }) => (
+// Es útil para que TypeScript entienda qué tipo de props espera cada componente.
+interface HeaderProps {
+  toggleMobileMenu: () => void; // Una función que no recibe argumentos y no retorna nada.
+  isMobileMenuOpen: boolean;    // Un valor booleano (true/false) que indica si el menú móvil está abierto.
+  logo: string;                 // Una cadena de texto que representa la URL de la imagen del logo.
+}
+
+
+
+
+
+// --- <Header>  Barra de navegacion --- 
+
+// Aquí se define el componente Header usando una función flecha (arrow function).
+// React.FC<HeaderProps> indica que es un componente de React que recibe props del tipo HeaderProps.
+// Entre paréntesis van los props desestructurados: { toggleMobileMenu, isMobileMenuOpen, logo }.
+// El símbolo => define la función flecha, que retorna el JSX (estructura visual del componente).
+const Header: React.FC<HeaderProps> = ({ toggleMobileMenu, isMobileMenuOpen, logo }) => (
+  // ...aquí va el JSX del componente...
   <header className="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-80 backdrop-blur-lg">
     <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
       <div className="flex items-center space-x-2">
@@ -90,7 +102,7 @@ const Header = ({ toggleMobileMenu, isMobileMenuOpen, logo }) => (
         <a href="#contacto" className="hover:text-red-600 transition-colors">Contacto</a>
       </div>
       <button onClick={toggleMobileMenu} className="md:hidden text-white focus:outline-none">
-        <Menu className="w-6 h-6" />
+        <Menu className="w-6 h-6" />isMobileMenuOpen
       </button>
     </nav>
     <div className={`md:hidden bg-gray-900 text-white text-center py-4 space-y-4 ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
@@ -102,7 +114,15 @@ const Header = ({ toggleMobileMenu, isMobileMenuOpen, logo }) => (
   </header>
 );
 
-const Hero = ({ heroBackground }) => (
+
+// --- <Hero> Sección de héroe ---
+// Primer letrero de la pagina donde esta 
+
+interface HeroProps {
+  heroBackground: string;
+}
+
+const Hero: React.FC<HeroProps> = ({ heroBackground }) => (
   <section id="inicio" className="relative min-h-screen flex items-center justify-center text-center py-24 bg-gray-950 overflow-hidden">
     <div
       className="absolute inset-0 z-0 bg-cover bg-center"
@@ -128,13 +148,48 @@ const Hero = ({ heroBackground }) => (
   </section>
 );
 
-const TeamSection = ({ teamMembers }) => {
+
+
+
+// ---- Seccion Nuestrio Equipo ----
+
+
+// Datos del equipo. En un proyecto real, esto podría venir de una API.
+// Para usar tus propias imágenes, simplemente reemplaza las URLs de "placehold.co"
+// con las URLs públicas de las fotos de cada miembro del equipo.
+const teamMembers = [
+  { name: 'Facundo', role: 'Diseñador UX/UI', linkedin: '#', whatsapp: 'https://wa.me/+59891886824', github: '#', img: fotoFacundo },
+  { name: 'Esteban', role: 'Backend Developer', linkedin: 'https://www.linkedin.com/in/esteban-silva-598110182/', whatsapp: 'https://wa.me/+59899456893', github: 'https://github.com/Megamonster2YT', img: fotoEsteban },
+  { name: 'Ary', role: 'Infraestructura & CEO', linkedin: 'https://www.linkedin.com/in/ary-gimenez-2a42b5179/', whatsapp: 'https://wa.me/+59898559058', github: 'https://github.com/AryGimenez', img: fotoAry },
+  { name: 'Mateo', role: 'Ventas, Marketing & Frontend Developer', linkedin: 'https://www.linkedin.com/in/mate-bds-46448a363/', whatsapp: 'https://wa.me/+59897840421', github: 'https://github.com/MateoBas005', img: fotoMateo },
+];
+
+
+// Define la estructura de un solo miembro del equipo
+interface TeamMember {
+  name: string;
+  role: string;
+  linkedin: string;
+  whatsapp: string;
+  github: string;
+  img: string;
+}
+
+
+
+interface TeamSectionProps {
+  teamMembers: TeamMember[]; // <- ¡Este es el cambio clave!
+};
+
+
+const TeamSection: React.FC<TeamSectionProps> = ({ teamMembers }) => {
   const [nosotrosRef, nosotrosInView] = useFadeInOnScroll();
   return (
     <section id="nosotros" className="py-24 bg-black">
       <div ref={nosotrosRef} className={`container mx-auto px-4 text-center transition-all duration-1000 transform ${nosotrosInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">Conoce a nuestro equipo</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Mapa de miembros del equipo - Crea los diferentes DIV con los datos del equipo */}
           {teamMembers.map((member, index) => (
             <div key={index} className="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center transition-all duration-300 hover:scale-105 hover:border-red-600">
               <img src={member.img} alt={`Foto de ${member.name}`} className="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-red-600" />
@@ -153,11 +208,19 @@ const TeamSection = ({ teamMembers }) => {
               </div>
             </div>
           ))}
+          
         </div>
       </div>
     </section>
   );
 };
+
+
+
+
+
+
+// ---- Seccion Proyectos  ------------
 
 const ProjectsSection = ({ projects }) => {
   const [proyectosRef, proyectosInView] = useFadeInOnScroll();
@@ -210,6 +273,22 @@ const ProjectsSection = ({ projects }) => {
     </section>
   );
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const ContactSection = ({ whatsappUrl }) => {
   const [contactoRef, contactoInView] = useFadeInOnScroll();
