@@ -1,24 +1,39 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, Linkedin, MessageSquareText, Phone, Github, Mail } from 'lucide-react';
 
+
+
+
 // Se han reemplazado las importaciones locales por URLs de imágenes de marcador de posición
 // para asegurar que el código se compile y se ejecute correctamente en cualquier entorno.
 // Puedes reemplazar estas URLs con las de tus propias imágenes una vez que las hayas subido a internet.
-const heroBackground = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/backgrounds/hero-background.jpg?raw=true";
-const logo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/logo3.png?raw=true";
-const fotoMateo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/mateo.png?raw=true"
-const fotoAry = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/ary.png?raw=true"
-const fotoFacundo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/facundo.png?raw=true"
-const fotoEsteban = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/esteban.png?raw=true"
-const logoMGSoluciones = "https://mgsolucionesit.com.uy/wp-content/uploads/2022/05/Asset-1.svg"
+import heroBackground from './assets/backgrounds/hero-background.jpg'
+import logo from './assets/logo3.png'
+import fotoEsteban from './assets/equipo/esteban.png'
+import fotoAry from './assets/equipo/ary.png'
+import fotoFacundo from './assets/equipo/facundo.png'
+import fotoMateo from './assets/equipo/mateo.png'
+import logoMGSoluciones from './assets/MGSoluciones.png'
+
+//Codigo antiguo
+
+
+//const heroBackground = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/backgrounds/hero-background.jpg?raw=true";
+//const logo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/logo3.png?raw=true";
+//const fotoMateo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/mateo.png?raw=true"
+//const fotoAry = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/ary.png?raw=true"
+//const fotoFacundo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/facundo.png?raw=true"
+//const fotoEsteban = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/esteban.png?raw=true"
+//const logoMGSoluciones = "https://mgsolucionesit.com.uy/wp-content/uploads/2022/05/Asset-1.svg" 
+
 
 /**
  * Custom Hook para animaciones de "fade-in" al hacer scroll.
  * Detecta cuando un elemento entra en la vista del usuario.
  * @returns {[React.RefObject<HTMLDivElement>, boolean]} Un array con la referencia del elemento y un booleano que indica si está en la vista.
  */
-const useFadeInOnScroll = () => {
-  const ref = useRef(null);
+const useFadeInOnScroll = (): [React.RefObject<HTMLDivElement>, boolean] => {
+  const ref = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -48,18 +63,8 @@ const useFadeInOnScroll = () => {
     };
   }, []);
 
-  return [ref, isInView];
+  return [ref as React.RefObject<HTMLDivElement>, isInView];
 };
-
-
-// Datos de los proyectos.
-// Se ha añadido una propiedad `url` para que cada proyecto sea un enlace.
-const projects = [
-  { title: 'MG Soluciones IT', description: 'Creamos una plataforma web profesional para MG Soluciones IT, destacando sus servicios clave de soporte técnico, infraestructura IT y respaldos en la nube. Un diseño moderno y funcional que conecta a los clientes con soluciones tecnológicas eficientes.', img: logoMGSoluciones, url: 'https://mgsolucionesit.com.uy/' },
-  { title: 'Sistema de Gestión de Proyectos', description: 'Creación de una plataforma web para la gestión de proyectos internos, con seguimiento de tareas, asignación de recursos y generación de informes.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Gestion+Proyectos', url: '#' },
-  { title: 'Aplicación Móvil de Servicios', description: 'Desarrollo de una aplicación móvil para iOS y Android que permite a los clientes solicitar nuestros servicios de desarrollo y mantenimiento.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=App+Movil', url: '#' },
-];
-
 
 
 
@@ -100,7 +105,7 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu, isMobileMenuOpen, log
         <a href="#contacto" className="hover:text-red-600 transition-colors">Contacto</a>
       </div>
       <button onClick={toggleMobileMenu} className="md:hidden text-white focus:outline-none">
-        <Menu className="w-6 h-6" />isMobileMenuOpen
+        <Menu className="w-6 h-6" />
       </button>
     </nav>
     <div className={`md:hidden bg-gray-900 text-white text-center py-4 space-y-4 ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
@@ -218,20 +223,31 @@ const TeamSection: React.FC<TeamSectionProps> = ({ teamMembers }) => {
 };
 
 
+
+
+// ---- Seccion Proyectos  ------------
+
+// Datos de los proyectos.
+// Se ha añadido una propiedad `url` para que cada proyecto sea un enlace.
+const projects = [
+  { title: 'MG Soluciones IT', description: 'Creamos una plataforma web profesional para MG Soluciones IT, destacando sus servicios clave de soporte técnico, infraestructura IT y respaldos en la nube. Un diseño moderno y funcional que conecta a los clientes con soluciones tecnológicas eficientes.', img: logoMGSoluciones, url: 'https://mgsolucionesit.com.uy/' },
+  { title: 'Sistema de Gestión de Proyectos', description: 'Creación de una plataforma web para la gestión de proyectos internos, con seguimiento de tareas, asignación de recursos y generación de informes.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Gestion+Proyectos', url: '#' },
+  { title: 'Aplicación Móvil de Servicios', description: 'Desarrollo de una aplicación móvil para iOS y Android que permite a los clientes solicitar nuestros servicios de desarrollo y mantenimiento.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=App+Movil', url: '#' },
+];
+
+
 interface ProjectsSectionMember {
-  projects: {
     title: string;
     description: string;
     img: string;
     url: string;
-  }[];
 }
 
 interface ProjectsSectionProps {
   projects: ProjectsSectionMember[];
 }
 
-// ---- Seccion Proyectos  ------------
+
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   const [proyectosRef, proyectosInView] = useFadeInOnScroll();
@@ -291,27 +307,22 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
 
 
 
+interface ContactSelectPaper {
+  whatsappUrl: string;
+}
 
 
-
-
-
-
-
-
-
-
-const ContactSection = ({ whatsappUrl }) => {
+const ContactSection: React.FC<ContactSelectPaper> = ({ whatsappUrl }) => {
   const [contactoRef, contactoInView] = useFadeInOnScroll();
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [formMessage, setFormMessage] = useState('');
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFormSubmit = async (e) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsFormSubmitting(true);
     setFormMessage('Enviando mensaje...');
