@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, Linkedin, MessageSquareText, Phone, Github } from 'lucide-react';
+import { Menu, Linkedin, MessageSquareText, Phone, Github, Mail } from 'lucide-react';
 
 // Se han reemplazado las importaciones locales por URLs de imágenes de marcador de posición
 // para asegurar que el código se compile y se ejecute correctamente en cualquier entorno.
@@ -10,7 +10,7 @@ const fotoMateo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Ago
 const fotoAry = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/ary.png?raw=true"
 const fotoFacundo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/facundo.png?raw=true"
 const fotoEsteban = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/esteban.png?raw=true"
-
+const logoMGSoluciones = "https://mgsolucionesit.com.uy/wp-content/uploads/2022/05/Asset-1.svg"
 
 /**
  * Custom Hook para animaciones de "fade-in" al hacer scroll.
@@ -55,11 +55,9 @@ const useFadeInOnScroll = () => {
 // Datos de los proyectos.
 // Se ha añadido una propiedad `url` para que cada proyecto sea un enlace.
 const projects = [
-  { title: 'Sitio Web Corporativo NorthCode', description: 'Desarrollo de un sitio web corporativo de alto rendimiento para nuestra empresa NorthCode, con secciones personalizadas para mostrar nuestros servicios.', img: logo, url: '#' },
+  { title: 'MG Soluciones IT', description: 'Creamos una plataforma web profesional para MG Soluciones IT, destacando sus servicios clave de soporte técnico, infraestructura IT y respaldos en la nube. Un diseño moderno y funcional que conecta a los clientes con soluciones tecnológicas eficientes.', img: logoMGSoluciones, url: 'https://mgsolucionesit.com.uy/' },
   { title: 'Sistema de Gestión de Proyectos', description: 'Creación de una plataforma web para la gestión de proyectos internos, con seguimiento de tareas, asignación de recursos y generación de informes.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Gestion+Proyectos', url: '#' },
   { title: 'Aplicación Móvil de Servicios', description: 'Desarrollo de una aplicación móvil para iOS y Android que permite a los clientes solicitar nuestros servicios de desarrollo y mantenimiento.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=App+Movil', url: '#' },
-  { title: 'Tienda en Línea para Pymes', description: 'Creación de una plataforma de e-commerce personalizable para pequeñas y medianas empresas, con integración de pasarelas de pago y gestión de inventario.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Tienda+Online', url: '#' },
-  { title: 'Plataforma Educativa Interactiva', description: 'Desarrollo de una plataforma web para cursos en línea, con lecciones interactivas, seguimiento de progreso y foros de discusión.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=E-learning', url: '#' },
 ];
 
 
@@ -158,10 +156,10 @@ const Hero: React.FC<HeroProps> = ({ heroBackground }) => (
 // Para usar tus propias imágenes, simplemente reemplaza las URLs de "placehold.co"
 // con las URLs públicas de las fotos de cada miembro del equipo.
 const teamMembers = [
-  { name: 'Facundo', role: 'Diseñador UX/UI', linkedin: '#', whatsapp: 'https://wa.me/+59891886824', github: '#', img: fotoFacundo },
-  { name: 'Esteban', role: 'Backend Developer', linkedin: 'https://www.linkedin.com/in/esteban-silva-598110182/', whatsapp: 'https://wa.me/+59899456893', github: 'https://github.com/Megamonster2YT', img: fotoEsteban },
-  { name: 'Ary', role: 'Infraestructura & CEO', linkedin: 'https://www.linkedin.com/in/ary-gimenez-2a42b5179/', whatsapp: 'https://wa.me/+59898559058', github: 'https://github.com/AryGimenez', img: fotoAry },
-  { name: 'Mateo', role: 'Ventas, Marketing & Frontend Developer', linkedin: 'https://www.linkedin.com/in/mate-bds-46448a363/', whatsapp: 'https://wa.me/+59897840421', github: 'https://github.com/MateoBas005', img: fotoMateo },
+  { name: 'Facundo', role: 'Diseñador UX/UI', linkedin: 'https://www.linkedin.com/in/facundo-quir%C3%B3-salda%C3%B1a-bustamante-1225b5250/', whatsapp: 'https://wa.me/+59891886824', github: 'https://github.com/thejokor16', mail: 'mailto:facugoqui@gmail.com', img: fotoFacundo },
+  { name: 'Esteban', role: 'Backend Developer', linkedin: 'https://www.linkedin.com/in/esteban-silva-598110182/', whatsapp: 'https://wa.me/+59899456893', github: 'https://github.com/Megamonster2YT', mail: 'mailto:silvaesteban309@gmail.com', img: fotoEsteban },
+  { name: 'Ary', role: 'Infraestructura & CEO', linkedin: 'https://www.linkedin.com/in/ary-gimenez-2a42b5179/', whatsapp: 'https://wa.me/+59898559058', github: 'https://github.com/AryGimenez', mail: 'mailto:argi.prog@gmail.com', img: fotoAry },
+  { name: 'Mateo', role: 'Ventas, Marketing & Frontend Developer', linkedin: 'https://www.linkedin.com/in/mate-bds-46448a363/', whatsapp: 'https://wa.me/+59897840421', github: 'https://github.com/MateoBas005', mail: 'mailto:matebsbastosdossantos@gmail.com', img: fotoMateo },
 ];
 
 
@@ -173,6 +171,7 @@ interface TeamMember {
   whatsapp: string;
   github: string;
   img: string;
+  mail: string;
 }
 
 
@@ -202,6 +201,9 @@ const TeamSection: React.FC<TeamSectionProps> = ({ teamMembers }) => {
                 <a href={member.github} className="transition-transform transform hover:scale-125 duration-200" aria-label={`GitHub de ${member.name}`}>
                   <Github className="w-6 h-6 text-gray-400 hover:text-red-600" />
                 </a>
+                <a href={member.mail} className="transition-transform transform hover:scale-125 duration-200" aria-label={`Email de ${member.name}`}>
+                  <Mail className="w-6 h-6 text-gray-400 hover:text-red-600" />
+                </a>
                 <a href={member.whatsapp} className="transition-transform transform hover:scale-125 duration-200" aria-label={`WhatsApp de ${member.name}`}>
                   <MessageSquareText className="w-6 h-6 text-gray-400 hover:text-red-600" />
                 </a>
@@ -216,13 +218,22 @@ const TeamSection: React.FC<TeamSectionProps> = ({ teamMembers }) => {
 };
 
 
+interface ProjectsSectionMember {
+  projects: {
+    title: string;
+    description: string;
+    img: string;
+    url: string;
+  }[];
+}
 
-
-
+interface ProjectsSectionProps {
+  projects: ProjectsSectionMember[];
+}
 
 // ---- Seccion Proyectos  ------------
 
-const ProjectsSection = ({ projects }) => {
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   const [proyectosRef, proyectosInView] = useFadeInOnScroll();
   // Se duplica el array de proyectos para crear un efecto de carrusel infinito.
   const allProjects = [...projects, ...projects];
