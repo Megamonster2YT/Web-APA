@@ -4,19 +4,19 @@ import { Menu, Linkedin, MessageSquareText, Phone, Github, Mail } from 'lucide-r
 
 
 
-// Se han reemplazado las importaciones locales por URLs de imágenes de marcador de posición
-// para asegurar que el código se compile y se ejecute correctamente en cualquier entorno.
-// Puedes reemplazar estas URLs con las de tus propias imágenes una vez que las hayas subido a internet.
+// --- Importación de imágenes ---
+
 import heroBackground from './assets/backgrounds/hero-background.jpg'
-import logo from './assets/logo3.png'
+import logo from './assets/logo4.png'
 import fotoEsteban from './assets/equipo/esteban.png'
 import fotoAry from './assets/equipo/ary.png'
 import fotoFacundo from './assets/equipo/facundo.png'
 import fotoMateo from './assets/equipo/mateo.png'
 import logoMGSoluciones from './assets/MGSoluciones.png'
+import logoMColors from './assets/MontevideoColors.png'
+import logoGuzzetti from './assets/Guzzetti.png'
 
-//Codigo antiguo
-
+// --- Codigo antiguo ---
 
 //const heroBackground = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/backgrounds/hero-background.jpg?raw=true";
 //const logo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/logo3.png?raw=true";
@@ -32,6 +32,8 @@ import logoMGSoluciones from './assets/MGSoluciones.png'
  * Detecta cuando un elemento entra en la vista del usuario.
  * @returns {[React.RefObject<HTMLDivElement>, boolean]} Un array con la referencia del elemento y un booleano que indica si está en la vista.
  */
+
+// Hook para animaciones de "fade-in" al hacer scroll
 const useFadeInOnScroll = (): [React.RefObject<HTMLDivElement>, boolean] => {
   const ref = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
@@ -157,9 +159,9 @@ const Hero: React.FC<HeroProps> = ({ heroBackground }) => (
 // ---- Seccion Nuestrio Equipo ----
 
 
-// Datos del equipo. En un proyecto real, esto podría venir de una API.
-// Para usar tus propias imágenes, simplemente reemplaza las URLs de "placehold.co"
-// con las URLs públicas de las fotos de cada miembro del equipo.
+// Datos del equipo.
+// Para usar tus propias imágenes, simplemente reemplaza las URLs de "placehold.co" por el nombre que pones del import.
+
 const teamMembers = [
   { name: 'Facundo', role: 'Diseñador UX/UI', linkedin: 'https://www.linkedin.com/in/facundo-quir%C3%B3-salda%C3%B1a-bustamante-1225b5250/', whatsapp: 'https://wa.me/+59891886824', github: 'https://github.com/thejokor16', mail: 'mailto:facugoqui@gmail.com', img: fotoFacundo },
   { name: 'Esteban', role: 'Backend Developer', linkedin: 'https://www.linkedin.com/in/esteban-silva-598110182/', whatsapp: 'https://wa.me/+59899456893', github: 'https://github.com/Megamonster2YT', mail: 'mailto:silvaesteban309@gmail.com', img: fotoEsteban },
@@ -231,8 +233,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({ teamMembers }) => {
 // Se ha añadido una propiedad `url` para que cada proyecto sea un enlace.
 const projects = [
   { title: 'MG Soluciones IT', description: 'Creamos una plataforma web profesional para MG Soluciones IT, destacando sus servicios clave de soporte técnico, infraestructura IT y respaldos en la nube. Un diseño moderno y funcional que conecta a los clientes con soluciones tecnológicas eficientes.', img: logoMGSoluciones, url: 'https://mgsolucionesit.com.uy/' },
-  { title: 'Sistema de Gestión de Proyectos', description: 'Creación de una plataforma web para la gestión de proyectos internos, con seguimiento de tareas, asignación de recursos y generación de informes.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=Gestion+Proyectos', url: '#' },
-  { title: 'Aplicación Móvil de Servicios', description: 'Desarrollo de una aplicación móvil para iOS y Android que permite a los clientes solicitar nuestros servicios de desarrollo y mantenimiento.', img: 'https://placehold.co/600x400/1f2937/ffffff?text=App+Movil', url: '#' },
+  { title: 'Montevideo Colors', description: 'Este proyecto es el sitio web para Montevideo Colors, una residencia estudiantil en el centro de Montevideo. La web fue diseñada para destacar su ubicación estratégica y una amplia gama de servicios esenciales para estudiantes, como WiFi, Netflix, limpieza diaria y seguridad las 24 horas.', img: logoMColors, url: 'https://www.montevideocolors.com.uy/' },
+  { title: 'Guzzetti - Arámbula Clinica Odontologica', description: 'Este proyecto es el sitio web de una clínica odontológica. La página está diseñada para transmitir confianza y profesionalismo, destacando un servicio dental integral que busca tanto la salud bucal como la armonía estética. Se enfatiza el compromiso con la excelencia y la experiencia del paciente para crear un espacio confiable y moderno.', img: logoGuzzetti, url: 'https://guzzettiarambulaodontologos.com/' },
 ];
 
 
