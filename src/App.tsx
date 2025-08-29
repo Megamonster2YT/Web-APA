@@ -135,7 +135,12 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu, isMobileMenuOpen, log
         <a href="#proyectos" className="hover:text-red-600 transition-colors">Proyectos</a>
         <a href="#contacto" className="hover:text-red-600 transition-colors">Contacto</a>
       </div>
-      <button onClick={toggleMobileMenu} className="md:hidden text-white focus:outline-none">
+      <button
+       onClick={toggleMobileMenu} 
+       className="md:hidden text-white focus:outline-none"
+       title="Abrir menú de navegación"
+       arial-label="Abrir menú de navegación"
+      >
         <Menu className="w-6 h-6" />
       </button>
     </nav>
