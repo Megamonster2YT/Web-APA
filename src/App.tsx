@@ -159,17 +159,14 @@ const Hero: React.FC<HeroProps> = ({ heroBackground }) => (
         backgroundImage: `url(${heroBackground})`,
       }}
     ></div>
+
+
+
     <div className="absolute inset-0 z-10 bg-black/70"></div>
     <div className="relative z-20 max-w-4xl mx-auto px-4 ">
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-10">
         <span className="text-red-600">Transformamos ideas</span><br /> en experiencias digitales.
       </h1>
-      {/* <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-        Analista Programadores Asociados
-      </p>
-      <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-        NorthCode Impulsando tu visión.
-      </p> */}
       <a href="#contacto" className="px-8 py-3 rounded-full font-bold transition-all duration-300 bg-red-600 text-white shadow-lg shadow-red-500/50 hover:bg-red-700">
         Comienza tu proyecto
       </a>
