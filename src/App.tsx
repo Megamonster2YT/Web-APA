@@ -16,22 +16,7 @@ import logoMGSoluciones from './assets/MGSoluciones.png'
 import logoMColors from './assets/MontevideoColors.png'
 import logoGuzzetti from './assets/Guzzetti.png'
 
-// --- Codigo antiguo ---
 
-//const heroBackground = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/backgrounds/hero-background.jpg?raw=true";
-//const logo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/logo3.png?raw=true";
-//const fotoMateo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/mateo.png?raw=true"
-//const fotoAry = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/ary.png?raw=true"
-//const fotoFacundo = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/facundo.png?raw=true"
-//const fotoEsteban = "https://github.com/Megamonster2YT/Web-APA/blob/Esteban-17-Agosto/Prueba2-TelwinV3/src/assets/equipo/esteban.png?raw=true"
-//const logoMGSoluciones = "https://mgsolucionesit.com.uy/wp-content/uploads/2022/05/Asset-1.svg" 
-
-
-/**
- * Custom Hook para animaciones de "fade-in" al hacer scroll.
- * Detecta cuando un elemento entra en la vista del usuario.
- * @returns {[React.RefObject<HTMLDivElement>, boolean]} Un array con la referencia del elemento y un booleano que indica si está en la vista.
- */
 
 // Hook para animaciones de "fade-in" al hacer scroll
 const useFadeInOnScroll = (): [React.RefObject<HTMLDivElement>, boolean] => {
@@ -69,10 +54,24 @@ const useFadeInOnScroll = (): [React.RefObject<HTMLDivElement>, boolean] => {
 };
 
 
+// --- Datos del equipo ---
 
-/**
- * --- Inicio de los componentes modulares ---
- */
+const teamMembers = [
+  { name: 'Facundo', role: 'Diseñador UX/UI', linkedin: 'https://www.linkedin.com/in/facundo-quir%C3%B3-salda%C3%B1a-bustamante-1225b5250/', whatsapp: 'https://wa.me/+59891886824', github: 'https://github.com/thejokor16', mail: 'mailto:facugoqui@gmail.com', img: fotoFacundo },
+  { name: 'Esteban', role: 'Backend Developer', linkedin: 'https://www.linkedin.com/in/esteban-silva-598110182/', whatsapp: 'https://wa.me/+59899456893', github: 'https://github.com/Megamonster2YT', mail: 'mailto:silvaesteban309@gmail.com', img: fotoEsteban },
+  { name: 'Ary', role: 'Infraestructura & CEO', linkedin: 'https://www.linkedin.com/in/ary-gimenez-2a42b5179/', whatsapp: 'https://wa.me/+59898559058', github: 'https://github.com/AryGimenez', mail: 'mailto:argi.prog@gmail.com', img: fotoAry },
+  { name: 'Mateo', role: 'Ventas, Marketing & Frontend Developer', linkedin: 'https://www.linkedin.com/in/mate-bds-46448a363/', whatsapp: 'https://wa.me/+59897840421', github: 'https://github.com/MateoBas005', mail: 'mailto:matebsbastosdossantos@gmail.com', img: fotoMateo },
+];
+
+// --- Datos de los proyectos ---
+
+const projects = [
+  { title: 'MG Soluciones IT', description: 'Creamos una plataforma web profesional para MG Soluciones IT, destacando sus servicios clave de soporte técnico, infraestructura IT y respaldos en la nube. Un diseño moderno y funcional que conecta a los clientes con soluciones tecnológicas eficientes.', img: logoMGSoluciones, url: 'https://mgsolucionesit.com.uy/' },
+  { title: 'Montevideo Colors', description: 'Este proyecto es el sitio web para Montevideo Colors, una residencia estudiantil en el centro de Montevideo. La web fue diseñada para destacar su ubicación estratégica y una amplia gama de servicios esenciales para estudiantes, como WiFi, Netflix, limpieza diaria y seguridad las 24 horas.', img: logoMColors, url: 'https://www.montevideocolors.com.uy/' },
+  { title: 'Guzzetti - Arámbula Clinica Odontologica', description: 'Este proyecto es el sitio web de una clínica odontológica. La página está diseñada para transmitir confianza y profesionalismo, destacando un servicio dental integral que busca tanto la salud bucal como la armonía estética. Se enfatiza el compromiso con la excelencia y la experiencia del paciente para crear un espacio confiable y moderno.', img: logoGuzzetti, url: 'https://guzzettiarambulaodontologos.com/' },
+];
+
+// --- Interfaces de props ---
 
 // Es útil para que TypeScript entienda qué tipo de props espera cada componente.
 interface HeaderProps {
@@ -81,18 +80,46 @@ interface HeaderProps {
   logo: string;                 // Una cadena de texto que representa la URL de la imagen del logo.
 }
 
+interface HeroProps {
+  heroBackground: string;
+}
+
+// Define la estructura de un solo miembro del equipo
+interface TeamMember {
+  name: string;
+  role: string;
+  linkedin: string;
+  whatsapp: string;
+  github: string;
+  img: string;
+  mail: string;
+}
+
+interface TeamSectionProps {
+  teamMembers: TeamMember[]; // <- ¡Este es el cambio clave!
+};
+
+interface ProjectsSectionMember {
+    title: string;
+    description: string;
+    img: string;
+    url: string;
+}
+
+interface ProjectsSectionProps {
+  projects: ProjectsSectionMember[];
+}
 
 
+interface ContactSelectPaper {
+  whatsappUrl: string;
+}
 
 
-// --- <Header>  Barra de navegacion --- 
+// --- Componente Header (Navegación) --- 
 
-// Aquí se define el componente Header usando una función flecha (arrow function).
-// React.FC<HeaderProps> indica que es un componente de React que recibe props del tipo HeaderProps.
-// Entre paréntesis van los props desestructurados: { toggleMobileMenu, isMobileMenuOpen, logo }.
-// El símbolo => define la función flecha, que retorna el JSX (estructura visual del componente).
+
 const Header: React.FC<HeaderProps> = ({ toggleMobileMenu, isMobileMenuOpen, logo }) => (
-  // ...aquí va el JSX del componente...
   <header className="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-80 backdrop-blur-lg">
     <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
       <div className="flex items-center space-x-2">
@@ -120,12 +147,8 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu, isMobileMenuOpen, log
 );
 
 
-// --- <Hero> Sección de héroe ---
-// Primer letrero de la pagina donde esta 
-
-interface HeroProps {
-  heroBackground: string;
-}
+// --- Componente Hero (Portada) ---
+// Primer letrero de la pagina donde esta
 
 const Hero: React.FC<HeroProps> = ({ heroBackground }) => (
   <section id="inicio" className="relative min-h-screen flex items-center justify-center text-center py-24 bg-gray-950 overflow-hidden">
@@ -156,36 +179,8 @@ const Hero: React.FC<HeroProps> = ({ heroBackground }) => (
 
 
 
-// ---- Seccion Nuestrio Equipo ----
+// ---- Seccion Nuestro Equipo ----
 
-
-// Datos del equipo.
-// Para usar tus propias imágenes, simplemente reemplaza las URLs de "placehold.co" por el nombre que pones del import.
-
-const teamMembers = [
-  { name: 'Facundo', role: 'Diseñador UX/UI', linkedin: 'https://www.linkedin.com/in/facundo-quir%C3%B3-salda%C3%B1a-bustamante-1225b5250/', whatsapp: 'https://wa.me/+59891886824', github: 'https://github.com/thejokor16', mail: 'mailto:facugoqui@gmail.com', img: fotoFacundo },
-  { name: 'Esteban', role: 'Backend Developer', linkedin: 'https://www.linkedin.com/in/esteban-silva-598110182/', whatsapp: 'https://wa.me/+59899456893', github: 'https://github.com/Megamonster2YT', mail: 'mailto:silvaesteban309@gmail.com', img: fotoEsteban },
-  { name: 'Ary', role: 'Infraestructura & CEO', linkedin: 'https://www.linkedin.com/in/ary-gimenez-2a42b5179/', whatsapp: 'https://wa.me/+59898559058', github: 'https://github.com/AryGimenez', mail: 'mailto:argi.prog@gmail.com', img: fotoAry },
-  { name: 'Mateo', role: 'Ventas, Marketing & Frontend Developer', linkedin: 'https://www.linkedin.com/in/mate-bds-46448a363/', whatsapp: 'https://wa.me/+59897840421', github: 'https://github.com/MateoBas005', mail: 'mailto:matebsbastosdossantos@gmail.com', img: fotoMateo },
-];
-
-
-// Define la estructura de un solo miembro del equipo
-interface TeamMember {
-  name: string;
-  role: string;
-  linkedin: string;
-  whatsapp: string;
-  github: string;
-  img: string;
-  mail: string;
-}
-
-
-
-interface TeamSectionProps {
-  teamMembers: TeamMember[]; // <- ¡Este es el cambio clave!
-};
 
 
 const TeamSection: React.FC<TeamSectionProps> = ({ teamMembers }) => {
@@ -227,27 +222,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ teamMembers }) => {
 
 
 
-// ---- Seccion Proyectos  ------------
-
-// Datos de los proyectos.
-// Se ha añadido una propiedad `url` para que cada proyecto sea un enlace.
-const projects = [
-  { title: 'MG Soluciones IT', description: 'Creamos una plataforma web profesional para MG Soluciones IT, destacando sus servicios clave de soporte técnico, infraestructura IT y respaldos en la nube. Un diseño moderno y funcional que conecta a los clientes con soluciones tecnológicas eficientes.', img: logoMGSoluciones, url: 'https://mgsolucionesit.com.uy/' },
-  { title: 'Montevideo Colors', description: 'Este proyecto es el sitio web para Montevideo Colors, una residencia estudiantil en el centro de Montevideo. La web fue diseñada para destacar su ubicación estratégica y una amplia gama de servicios esenciales para estudiantes, como WiFi, Netflix, limpieza diaria y seguridad las 24 horas.', img: logoMColors, url: 'https://www.montevideocolors.com.uy/' },
-  { title: 'Guzzetti - Arámbula Clinica Odontologica', description: 'Este proyecto es el sitio web de una clínica odontológica. La página está diseñada para transmitir confianza y profesionalismo, destacando un servicio dental integral que busca tanto la salud bucal como la armonía estética. Se enfatiza el compromiso con la excelencia y la experiencia del paciente para crear un espacio confiable y moderno.', img: logoGuzzetti, url: 'https://guzzettiarambulaodontologos.com/' },
-];
-
-
-interface ProjectsSectionMember {
-    title: string;
-    description: string;
-    img: string;
-    url: string;
-}
-
-interface ProjectsSectionProps {
-  projects: ProjectsSectionMember[];
-}
+// ---- Componente ProjectsSection (Proyectos)  ------------
 
 
 
@@ -307,11 +282,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
 
 
 
+// --- Componente ContactSection (Contacto) ---
 
-
-interface ContactSelectPaper {
-  whatsappUrl: string;
-}
 
 
 const ContactSection: React.FC<ContactSelectPaper> = ({ whatsappUrl }) => {
@@ -394,6 +366,9 @@ const ContactSection: React.FC<ContactSelectPaper> = ({ whatsappUrl }) => {
   );
 };
 
+
+// --- Componente Footer ---
+
 const Footer = () => (
   <footer className="bg-gray-950 text-gray-500 py-8 text-center">
     <div className="container mx-auto px-4">
@@ -402,10 +377,8 @@ const Footer = () => (
   </footer>
 );
 
-/**
- * --- Componente principal de la aplicación ---
- * Este componente orquesta todos los demás.
- */
+// --- Componente principal de la aplicación ---
+
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -426,3 +399,109 @@ const App = () => {
 };
 
 export default App;
+
+// --- Comentarios importantes ---
+// Aquí puedes agregar comentarios sobre la estructura y funcionalidad de tu aplicación.
+
+// Aquí se define el componente Header usando una función flecha (arrow function).
+// React.FC<HeaderProps> indica que es un componente de React que recibe props del tipo HeaderProps.
+// Entre paréntesis van los props desestructurados: { toggleMobileMenu, isMobileMenuOpen, logo }.
+// El símbolo => define la función flecha, que retorna el JSX (estructura visual del componente).
+
+// --- Codigo a revisar para mejorar carrusel ---
+// --- Componente ProjectsSection (Carrusel mejorado e infinito con drag) ---
+// import React, { useRef, useEffect, useState } from 'react';
+
+// const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
+//   const [proyectosRef, proyectosInView] = useFadeInOnScroll();
+//   const carouselRef = useRef<HTMLDivElement>(null);
+//   const [isDragging, setIsDragging] = useState(false);
+//   const [startX, setStartX] = useState(0);
+//   const [scrollLeft, setScrollLeft] = useState(0);
+
+//   // Duplicamos los proyectos para el loop visual
+//   const allProjects = [...projects, ...projects, ...projects];
+
+//   // Loop infinito real: cuando el scroll llega al final, lo reseteamos al inicio
+//   useEffect(() => {
+//     const carousel = carouselRef.current;
+//     if (!carousel) return;
+
+//     const handleScroll = () => {
+//       const maxScroll = carousel.scrollWidth / 3; // 1/3 porque triplicamos
+//       if (carousel.scrollLeft >= maxScroll * 2) {
+//         carousel.scrollLeft = maxScroll;
+//       } else if (carousel.scrollLeft <= 0) {
+//         carousel.scrollLeft = maxScroll;
+//       }
+//     };
+
+//     carousel.addEventListener('scroll', handleScroll);
+//     // Al montar, posicionamos en el centro
+//     carousel.scrollLeft = carousel.scrollWidth / 3;
+
+//     return () => {
+//       carousel.removeEventListener('scroll', handleScroll);
+//     };
+//   }, []);
+
+//   // Drag con mouse
+//   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+//     setIsDragging(true);
+//     setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0));
+//     setScrollLeft(carouselRef.current?.scrollLeft || 0);
+//   };
+
+//   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+//     if (!isDragging || !carouselRef.current) return;
+//     const x = e.pageX - carouselRef.current.offsetLeft;
+//     const walk = (x - startX) * 1.5; // velocidad
+//     carouselRef.current.scrollLeft = scrollLeft - walk;
+//   };
+
+//   const handleMouseUp = () => setIsDragging(false);
+//   const handleMouseLeave = () => setIsDragging(false);
+
+//   return (
+//     <section id="proyectos" className="py-24 bg-gray-950">
+//       <style>
+//         {`
+//           .no-select { user-select: none; }
+//         `}
+//       </style>
+//       <div ref={proyectosRef} className={`text-center transition-all duration-1000 transform ${proyectosInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+//         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">Nuestros Proyectos</h2>
+//         <div className="relative w-full overflow-hidden py-4">
+//           <div
+//             ref={carouselRef}
+//             className={`flex gap-4 overflow-x-scroll no-scrollbar cursor-grab no-select animate-none`}
+//             style={{ scrollBehavior: 'auto' }}
+//             onMouseDown={handleMouseDown}
+//             onMouseMove={handleMouseMove}
+//             onMouseUp={handleMouseUp}
+//             onMouseLeave={handleMouseLeave}
+//           >
+//             {allProjects.map((project, index) => (
+//               <a
+//                 key={index}
+//                 href={project.url}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="flex-shrink-0 w-80 p-4"
+//                 draggable={false}
+//               >
+//                 <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 overflow-hidden h-full transition-all duration-300 hover:scale-105 hover:border-red-600">
+//                   <img src={project.img} alt={`Imagen del proyecto: ${project.title}`} className="w-full h-48 object-cover rounded-md mb-4" draggable={false} />
+//                   <div className="text-left">
+//                     <h3 className="text-xl font-bold text-white">{project.title}</h3>
+//                     <p className="text-gray-400 mt-2">{project.description}</p>
+//                   </div>
+//                 </div>
+//               </a>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
