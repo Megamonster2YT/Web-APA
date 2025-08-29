@@ -7,11 +7,14 @@ import { Menu, Linkedin, MessageSquareText, Phone, Github, Mail } from 'lucide-r
 // --- Importación de imágenes ---
 
 import heroBackground from './assets/backgrounds/hero-background.jpg'
-import logo from './assets/logo4.png'
-import fotoEsteban from './assets/equipo/esteban.png'
-import fotoAry from './assets/equipo/ary.png'
+import logo from './assets/logo.png'
+
+// Fotos Equipo ----------------
+import fotoAry from './assets/equipo/ary-negro.jpg'
 import fotoFacundo from './assets/equipo/facundo.jpg'
-import fotoMateo from './assets/equipo/mateo.png'
+import fotoMateo from './assets/equipo/mateo.jpg'
+import fotoEsteban from './assets/equipo/esteban.jpg'
+// Fotos de Proyectos ----------------
 import logoMGSoluciones from './assets/MGSoluciones.png'
 import logoMColors from './assets/MontevideoColors.png'
 import logoGuzzetti from './assets/Guzzetti.png'
@@ -116,15 +119,14 @@ interface ContactSelectPaper {
 }
 
 
-// --- Componente Header (Navegación) --- 
-
-
+// --- Componente Donde mustra los miembros del equipo Header (Navegación) --- 
 const Header: React.FC<HeaderProps> = ({ toggleMobileMenu, isMobileMenuOpen, logo }) => (
   <header className="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-80 backdrop-blur-lg">
     <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
       <div className="flex items-center space-x-2">
-        <a href="#" className="text-white text-xl font-bold">
-          <img src={logo} alt="Logo de NorthCode" className="w-8 h-8" />
+        <a href="#" className="flex items-center text-white text-xl font-bold space-x-2">
+          <img src={logo} alt="Logo de NorthCode" className="w-10 h-10" /> 
+          <span>NorthCode</span>
         </a>
       </div>
       <div className="hidden md:flex space-x-6 text-gray-300 font-semibold">
@@ -149,7 +151,6 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu, isMobileMenuOpen, log
 
 // --- Componente Hero (Portada) ---
 // Primer letrero de la pagina donde esta
-
 const Hero: React.FC<HeroProps> = ({ heroBackground }) => (
   <section id="inicio" className="relative min-h-screen flex items-center justify-center text-center py-24 bg-gray-950 overflow-hidden">
     <div
@@ -159,16 +160,16 @@ const Hero: React.FC<HeroProps> = ({ heroBackground }) => (
       }}
     ></div>
     <div className="absolute inset-0 z-10 bg-black/70"></div>
-    <div className="relative z-20 max-w-4xl mx-auto px-4">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-2">
+    <div className="relative z-20 max-w-4xl mx-auto px-4 ">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-10">
         <span className="text-red-600">Transformamos ideas</span><br /> en experiencias digitales.
       </h1>
-      <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+      {/* <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
         Analista Programadores Asociados
       </p>
       <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
         NorthCode Impulsando tu visión.
-      </p>
+      </p> */}
       <a href="#contacto" className="px-8 py-3 rounded-full font-bold transition-all duration-300 bg-red-600 text-white shadow-lg shadow-red-500/50 hover:bg-red-700">
         Comienza tu proyecto
       </a>
@@ -180,8 +181,6 @@ const Hero: React.FC<HeroProps> = ({ heroBackground }) => (
 
 
 // ---- Seccion Nuestro Equipo ----
-
-
 
 const TeamSection: React.FC<TeamSectionProps> = ({ teamMembers }) => {
   const [nosotrosRef, nosotrosInView] = useFadeInOnScroll();
@@ -223,9 +222,6 @@ const TeamSection: React.FC<TeamSectionProps> = ({ teamMembers }) => {
 
 
 // ---- Componente ProjectsSection (Proyectos)  ------------
-
-
-
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   const [proyectosRef, proyectosInView] = useFadeInOnScroll();
   // Se duplica el array de proyectos para crear un efecto de carrusel infinito.
